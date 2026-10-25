@@ -1,0 +1,19 @@
+# App behavior. Appearance lives in dynamic.jsonc, static.jsonc and prompt.toml.
+shell = "fish"
+height = "auto"  # Measures the rendered panel; no more clipped borders.
+refresh_seconds = 1
+mouse = true     # tmux mouse scrolling/selection; false restores terminal mouse handling.
+static_config = "static.jsonc"  # Or an absolute path to your own Fastfetch JSONC.
+
+[weather]
+enabled = true
+location = "London,GB"
+# location = "Your city,CC"  # Example: "Paris,FR". Installer can set this for you.
+units = "metric"
+refresh_seconds = 0  # Fetch once at startup; Ctrl+b w refreshes. 900 = every 15 min.
+
+[media]
+player = ""  # Empty selects a playing MPRIS player automatically.
+
+[odometer]
+baseline_seconds = 0  # Optional historical uptime before tuptime began recording.

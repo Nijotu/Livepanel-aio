@@ -1,0 +1,117 @@
+# Native Starship config; replace this file with any Starship preset.
+# Shared colors are supplied by theme.jsonc through the livepanel palette.
+palette = "livepanel"
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+
+
+format = """
+$os\
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$bun\
+$rust\
+$golang\
+$php\
+$cmd_duration\
+$time\
+$line_break\
+$character"""
+
+[os]
+disabled = false
+style = "fg:green bg:label"
+format = "[|](fg:white bg:label)[ $symbol ]($style)"
+
+[os.symbols]
+CachyOS = "\U000F7000"
+Arch = "󰣇"
+Linux = "󰌽"
+Windows = "󰍲"
+Fedora = "󰣛"
+Ubuntu = "󰕈"
+Debian = "󰣚"
+Mint = "󰣭"
+Manjaro = ""
+Gentoo = "󰣨"
+EndeavourOS = ""
+[directory]
+style = "fg:text bg:value"
+format = "[|](fg:white bg:value)[ $path ]($style)[|](fg:white bg:value)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Games" = "󰊗 "
+"Projects" = "󰲋 "
+
+[git_branch]
+symbol = " "
+style = "fg:text bg:value"
+format = " [|](fg:white bg:label)[ $symbol](fg:mint bg:label)[|](fg:white bg:value)[ $branch ]($style)[|](fg:white bg:value)"
+
+[git_status]
+style = "fg:amber bg:value"
+format = "( [|](fg:white bg:label)[ $all_status$ahead_behind ]($style)[|](fg:white bg:value))"
+modified = "~"
+staged = "+"
+untracked = "?"
+deleted = "x"
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+
+[nodejs]
+symbol = " "
+style = "fg:text bg:value"
+format = " [|](fg:white bg:label)[ $symbol](fg:teal bg:label)[|](fg:white bg:value)[ $version ]($style)[|](fg:white bg:value)"
+
+[bun]
+symbol = " "
+style = "fg:text bg:value"
+format = " [|](fg:white bg:label)[ $symbol](fg:teal bg:label)[|](fg:white bg:value)[ $version ]($style)[|](fg:white bg:value)"
+
+[rust]
+symbol = " "
+style = "fg:text bg:value"
+format = " [|](fg:white bg:label)[ $symbol](fg:teal bg:label)[|](fg:white bg:value)[ $version ]($style)[|](fg:white bg:value)"
+
+[golang]
+symbol = " "
+style = "fg:text bg:value"
+format = " [|](fg:white bg:label)[ $symbol](fg:teal bg:label)[|](fg:white bg:value)[ $version ]($style)[|](fg:white bg:value)"
+
+[php]
+symbol = " "
+style = "fg:text bg:value"
+format = " [|](fg:white bg:label)[ $symbol](fg:teal bg:label)[|](fg:white bg:value)[ $version ]($style)[|](fg:white bg:value)"
+
+[python]
+disabled = true
+symbol = " "
+style = "fg:text bg:value"
+format = " [|](fg:white bg:label)[ $symbol](fg:teal bg:label)[|](fg:white bg:value)[ $version ]($style)[|](fg:white bg:value)"
+
+[cmd_duration]
+min_time = 2000
+style = "fg:amber bg:value"
+format = " [|](fg:white bg:label)[ 󱦟 ](fg:teal bg:label)[|](fg:white bg:value)[ $duration ]($style)[|](fg:white bg:value)"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "fg:text bg:value"
+format = " [|](fg:white bg:label)[  ](fg:cyan bg:label)[|](fg:white bg:value)[ $time ]($style)[|](fg:white bg:value)"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold cyan)"

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-label="LIVE PANEL">
+<defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#16D84D"/><stop offset=".5" stop-color="#00CBA4"/><stop offset="1" stop-color="#00BBEF"/></linearGradient></defs>
+<path d="M44 44h272v206H44z" fill="#2B2B45" stroke="url(#a)" stroke-width="12" stroke-linejoin="round"/>
+<path d="M65 67h62v49H65zm83 0h62v49h-62zm83 0h62v49h-62z" fill="url(#a)"/>
+<path d="M67 152h47l20-24 30 75 26-47h101" fill="none" stroke="url(#a)" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="180" y="308" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="34" font-weight="800" letter-spacing="2" fill="url(#a)">LIVE PANEL</text>
+</svg>

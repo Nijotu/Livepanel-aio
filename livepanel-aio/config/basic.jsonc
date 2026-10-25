@@ -1,0 +1,17 @@
+{
+  "logo": {
+    "type": "small"
+  },
+  "modules": [
+    "title",
+    "os",
+    "kernel",
+    "shell",
+    "cpu",
+    "gpu",
+    "memory",
+    "disk",
+    "break",
+    "colors"
+  ]
+}

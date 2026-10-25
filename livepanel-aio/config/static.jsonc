@@ -1,0 +1,128 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "source": "@logos/live-panel.svg",
+    "width": 36,
+    "preserveAspectRatio": true,
+    "padding": {
+      "top": 2,
+      "left": 3,
+      "right": 3
+    },
+    "height": 13
+  },
+  "display": {
+    "separator": "",
+    "pipe": false,
+    "constants": [
+      "@theme.label_bg",
+      "@theme.value_bg",
+      "\u001b[90m│                                                                                │\u001b[80D\u001b[39m"
+    ]
+  },
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "key": "{#@theme.border}{$1}╭─────────────╮",
+      "format": "{#@theme.border}{$2}╭────────────────────────────────────────────────────────────────────────────────╮"
+    },
+    {
+      "type": "title",
+      "key": "{#@theme.border}{$1}│ {#@theme.green}User        {#@theme.border}│",
+      "format": "{$2}{$3}{user-name}@{host-name}"
+    },
+    {
+      "type": "os",
+      "key": "{#@theme.border}{$1}│ {#@theme.green}OS          {#@theme.border}│",
+      "format": "{$2}{$3}{pretty-name}"
+    },
+    {
+      "type": "kernel",
+      "key": "{#@theme.border}{$1}│ {#@theme.green}Kernel      {#@theme.border}│",
+      "format": "{$2}{$3}{sysname} {release}"
+    },
+    {
+      "type": "initsystem",
+      "key": "{#@theme.border}{$1}│ {#@theme.green}Init        {#@theme.border}│",
+      "format": "{$2}{$3}{name} {version}"
+    },
+    {
+      "type": "shell",
+      "key": "{#@theme.border}{$1}│ {#@theme.green}Shell       {#@theme.border}│",
+      "format": "{$2}{$3}{pretty-name} {version}"
+    },
+    {
+      "type": "custom",
+      "key": "{#@theme.border}{$1}├─────────────┤",
+      "format": "{#@theme.border}{$2}├────────────────────────────────────────────────────────────────────────────────┤"
+    },
+    {
+      "type": "cpu",
+      "key": "{#@theme.border}{$1}│ {#@theme.mint}CPU         {#@theme.border}│",
+      "format": "{$2}{$3}{name} ({cores-physical}C/{cores-logical}T)"
+    },
+    {
+      "type": "gpu",
+      "key": "{#@theme.border}{$1}│ {#@theme.mint}GPU         {#@theme.border}│",
+      "format": "{$2}{$3}{name} [{type}]"
+    },
+    {
+      "type": "display",
+      "key": "{#@theme.border}{$1}│ {#@theme.mint}Display     {#@theme.border}│",
+      "format": "{$2}{$3}{name}: {width}x{height} in {inch}\", {refresh-rate} Hz [{type}{?hdr-enabled}, HDR{?}]{?is-primary} *{?}"
+    },
+    {
+      "type": "disk",
+      "key": "{#@theme.border}{$1}│ {#@theme.mint}Disk        {#@theme.border}│",
+      "format": "{$2}{$3}{mountpoint}: {size-used} / {size-total} ({size-percentage}{$2}) - {filesystem}"
+    },
+    {
+      "type": "custom",
+      "key": "{#@theme.border}{$1}├─────────────┤",
+      "format": "{#@theme.border}{$2}├────────────────────────────────────────────────────────────────────────────────┤"
+    },
+    {
+      "type": "de",
+      "key": "{#@theme.border}{$1}│ {#@theme.teal}DE          {#@theme.border}│",
+      "format": "{$2}{$3}{pretty-name} {version}"
+    },
+    {
+      "type": "wm",
+      "key": "{#@theme.border}{$1}│ {#@theme.teal}WM          {#@theme.border}│",
+      "format": "{$2}{$3}{pretty-name} ({protocol-name})"
+    },
+    {
+      "type": "theme",
+      "key": "{#@theme.border}{$1}│ {#@theme.teal}Theme       {#@theme.border}│",
+      "format": "{$2}{$3}{theme1}, {theme2}"
+    },
+    {
+      "type": "font",
+      "key": "{#@theme.border}{$1}│ {#@theme.teal}Font        {#@theme.border}│",
+      "format": "{$2}{$3}{combined}"
+    },
+    {
+      "type": "cursor",
+      "key": "{#@theme.border}{$1}│ {#@theme.teal}Cursor      {#@theme.border}│",
+      "format": "{$2}{$3}{theme} ({size}px)"
+    },
+    {
+      "type": "custom",
+      "key": "{#@theme.border}{$1}├─────────────┤",
+      "format": "{#@theme.border}{$2}├────────────────────────────────────────────────────────────────────────────────┤"
+    },
+    {
+      "type": "locale",
+      "key": "{#@theme.border}{$1}│ {#@theme.cyan}Locale      {#@theme.border}│",
+      "format": "{$2}{$3}{result}"
+    },
+    {
+      "type": "custom",
+      "key": "{#@theme.border}{$1}╰─────────────╯",
+      "format": "{#@theme.border}{$2}╰────────────────────────────────────────────────────────────────────────────────╯"
+    },
+    "break"
+  ]
+}

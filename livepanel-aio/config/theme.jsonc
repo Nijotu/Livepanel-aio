@@ -1,0 +1,12 @@
+{
+  // Shared by both panels and the bundled Starship preset.
+  "colors": {
+    "label": "#2B2B45", "value": "#383B4E", "text": "#EAEAF2",
+    "border": "#686C82", "green": "#16D84D", "mint": "#19D07A",
+    "teal": "#1CC8A7", "cyan": "#1FBFD4", "amber": "#FFBE5A",
+    "white": "#FFFFFF", "red": "#FF6077"
+  },
+  "label_width": 12,
+  "group_gap": 1,
+  "divider": "#1FBFD4"
+}
