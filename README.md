@@ -4,6 +4,8 @@ Live system information above a normal terminal shell, with matching static syst
 
 One installer sets up the application, Fastfetch, Starship, ANSIWeather, playerctl and the bundled Nerd Font. It uses your real system readings, a neutral London weather default and a replaceable LIVE PANEL logo.
 
+![Livepanel demonstration](docs/images/demo.gif)
+
 ## Quick start
 
 Download and extract the project ZIP. Open a terminal **inside the extracted folder containing `install.sh`**, then run as your normal user:
