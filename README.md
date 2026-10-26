@@ -13,6 +13,7 @@ Out of the box ASCII
 ![Livepanel demonstration](livepanel-aio/docs/images/demo2.png)
 
 
+
 ## Quick start
 
 Download and extract the project ZIP. Open a terminal **inside the extracted folder containing `install.sh`**, then run as your normal user:
@@ -23,7 +24,7 @@ bash install.sh
 
 On a fresh install, choose your shell (Fish, Bash or Zsh) and weather location (`City,CC`). Press Enter to accept the detected shell and `London,GB`. The installer does not change your system login shell. It requests sudo for system packages when needed; do not run the entire installer with sudo.
 
-Select **DroidSansMono Cachy Nerd Font** in your terminal's font settings. Open a new terminal and launch:
+Select a **Nerd Font** in your terminal’s font settings; see [font setup](#font-and-logo) below for Fedora/GNOME and the bundled custom font. Open a new terminal and launch:
 
 ```sh
 ~/.local/bin/livepanel-aio
@@ -34,6 +35,20 @@ You can launch Livepanel from any folder. You do not need to keep the extracted 
 Internet access and Python 3.11+ are required. Automatic dependency installation supports pacman, apt and dnf systems, including CachyOS/Arch, Debian/Ubuntu and Fedora. This is installer support, not a claim that every distribution has been tested. See [detailed requirements](docs/install.md).
 
 **Mouse behaviour:** scrolling is enabled through tmux. Selection and right-click therefore use tmux's behaviour; see [controls](#controls-and-mouse-behaviour) below.
+
+## Fedora installation note for the 2026-10-25 r2 ZIP
+
+The original r2 installer needs two corrections on Fedora: its DNF package list includes an unavailable Starship package, and the Starship website returned HTTP 403 during testing. From the extracted folder containing `install.sh`, apply both fixes before installing:
+
+```sh
+sed -i.bak '/dnf install -y python3/s/ fastfetch starship / fastfetch /' install.sh
+sed -i.bak 's|https://starship.rs/install.sh|https://raw.githubusercontent.com/starship/starship/master/install/install.sh|' app/install.py
+bash install.sh
+```
+
+These commands back up the edited files and use Starship’s official GitHub-hosted installer. They are temporary instructions for the original r2 archive, not a substitute for distributing a corrected installer. Reapply them if you extract a fresh unmodified r2 copy.
+
+Wait for successful installation before launching `~/.local/bin/livepanel-aio`. If dependency installation fails, the launcher and even `~/.local/bin` may not exist yet; creating that directory manually will not finish installation.
 
 ## Which folder do I use?
 
@@ -123,7 +138,26 @@ font-family = DroidSansMono Cachy Nerd Font
 font-size = 10
 ```
 
-Other terminals: open your profile or appearance settings and select **DroidSansMono Cachy Nerd Font**. See [font instructions for other terminals](docs/install.md#font-selection). The custom CachyOS prompt glyph requires the bundled font.
+### Fedora / GNOME terminal (Ptyxis)
+
+- Open the terminal’s **☰ menu → Preferences → Appearance**.
+- Scroll to the font settings and turn off **Use system font**.
+- Search for **Droid** and choose the desired Nerd Font, then its **Regular** style.
+- Adjust the size to suit your display; 10–12 is a starting point.
+
+Regular **DroidSansMono Nerd Font** rendered the Fedora, directory and clock prompt icons correctly in the Fedora VM test. A standard Nerd Font is enough for those icons. The added CachyOS glyph at U+F7000 needs the custom bundled font.
+
+The file is named `DroidCachyNerd-Regular.otf`, but the font viewer in the Fedora test displayed **DroidSansMono Nerd Font**. Applications may expose different embedded font names, so do not rely on the filename or preview title alone to distinguish a custom font from the regular one. If a font is missing from the picker, close all terminal windows and reopen the terminal. To inspect installed Droid font names and paths:
+
+```sh
+fc-list | grep -i droid
+```
+
+If the bundled font was not installed, open `fonts/DroidCachyNerd-Regular.otf` from the extracted project and click **Install**, then reopen the terminal. Installing a font does not automatically select it in your terminal.
+
+Other terminals: open your profile or appearance settings and choose a Nerd Font. See [font instructions for other terminals](docs/install.md#font-selection). The static panel’s **Font** row reports the desktop interface font, not necessarily the terminal font.
+
+### Replace the logo
 
 To replace the LIVE PANEL logo, put your image in `~/.config/livepanel-aio/logos/` and update the existing `logo` section in `static.jsonc`:
 
@@ -255,7 +289,7 @@ Run Livepanel from a normal terminal outside an existing tmux session. For more 
 
 The maintainer has tested a fresh app/config installation on an existing CachyOS system with Fish and Ghostty, including the corrected odometer and Processes row. Upgrade preservation, uninstall cleanup, terminal resizing and long command output have also been checked by the maintainer. The current build passed 13 automated core tests.
 
-**A clean-VM installation without preinstalled dependencies is still pending.** Earlier shell-only checks covered Bash and Zsh, but do not establish full graphical or cross-distribution coverage. This is a beta candidate; see [validation details](docs/validation.md) for test scope.
+A Fedora 44 VM test reached a running Livepanel session with Bash after the two r2 installer corrections above, both in the live session and on the installed system. Weather, panels and standard Nerd Font prompt icons were visible. Odometer remained unavailable and still needs investigation; reboot persistence and autostart have not yet been confirmed in that VM. Earlier shell-only checks covered Bash and Zsh. This is not a claim of complete cross-distribution coverage; see [validation details](docs/validation.md) for the earlier test scope.
 
 ## Trying this alongside an older Livepanel
 
