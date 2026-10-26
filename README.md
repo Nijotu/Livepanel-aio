@@ -6,6 +6,11 @@ One installer sets up the application, Fastfetch, Starship, ANSIWeather, playerc
 
 ![Livepanel demonstration](livepanel-aio/docs/images/demo.gif)
 
+![Livepanel demonstration](livepanel-aio/docs/images/demo_1.png)
+
+![Livepanel demonstration](livepanel-aio/docs/images/demo_2.png)
+
+
 ## Quick start
 
 Download and extract the project ZIP. Open a terminal **inside the extracted folder containing `install.sh`**, then run as your normal user:
