@@ -6,8 +6,10 @@ One installer sets up the application, Fastfetch, Starship, ANSIWeather, playerc
 
 ![Livepanel demonstration](livepanel-aio/docs/images/demo.gif)
 
+Out of the box svg
 ![Livepanel demonstration](livepanel-aio/docs/images/demo1.png)
 
+Out of the box ASCII
 ![Livepanel demonstration](livepanel-aio/docs/images/demo2.png)
 
 
